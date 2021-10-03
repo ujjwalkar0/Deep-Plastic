@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{object_list}}
 <div style="margin: 20px;">
   <h3>{{photos}}</h3>
   <div class="row">
@@ -9,8 +8,13 @@
       <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card" style="margin:10px 0px ;">
           <div class="card-header">
-             Location : <a href="http://www.google.com/maps/place/{{ i.location }}">{{ i.location }}</a>
-          </div>
+             Location : 
+             {% if i.location == '0' %}
+             Location Not Detected
+             {% else %}
+             <a href="http://www.google.com/maps/place/{{ i.location }}">{{ i.location }}</a>
+            {% endif %}
+            </div>
           <div class="card-body">
               <img src="/media/{{i.image}}" width="270px" height="200px">
           </div>

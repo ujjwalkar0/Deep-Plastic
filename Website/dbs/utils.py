@@ -95,3 +95,5 @@ def CheckVideo(link):
 
     cap.release()
     cv2.destroyAllWindows()
+    
+    return "Complete"
