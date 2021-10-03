@@ -6,7 +6,11 @@ from django.http import HttpResponse
 import json
 from django.views.generic import ListView #, DeleteView, UpdateView, DetailView, CreateView
 from .forms import *
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from .utils import CheckVideo
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ImageViewSet(ListAPIView):
     queryset = UploadImageTest.objects.all()
     serializer_class = ImageSerializer
@@ -49,3 +53,9 @@ def Uploader(request):
         'form': form
     }
     return render(request,'upload.html',context)
+
+def ObjectDetect(request,a,b,c):
+    context = {
+        'a': a+'/'+b+'/'+c
+    }
+    return render(request,'plastic.html',context)
