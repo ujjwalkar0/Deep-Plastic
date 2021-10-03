@@ -6,8 +6,10 @@ from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
-    path('upload/', ImageViewSet.as_view(), name='upload'),
-    path('', ViewData.as_view(), name='upload'),
+    path('', ViewData.as_view(), name='home'),
+    path('home', ViewData.as_view(), name='home'),
+    path('api/', ImageViewSet.as_view(), name='api'),
+    path('upload/', Uploader, name='upload'),
     path('<str:pk>/',ViewByDate,name='ViewByDate')
 ]
 

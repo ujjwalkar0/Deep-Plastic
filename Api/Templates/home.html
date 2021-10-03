@@ -24,6 +24,8 @@
         <div class="container-fluid">
         </div>
       </nav>
+<!--------- Images --------------->
+{% block content %}
       <div style="margin: 20px;">
         <h3>{{photos}}</h3>
         <div class="row">
@@ -44,7 +46,9 @@
         {% endfor %}
         </div>
     </div>
-    
+
+{% endblock content %}
+
       
 
     <!-- Optional JavaScript; choose one of the two! -->

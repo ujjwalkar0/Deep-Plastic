@@ -5,9 +5,7 @@ from rest_framework.generics import ListAPIView
 from django.http import HttpResponse
 import json
 from django.views.generic import ListView #, DeleteView, UpdateView, DetailView, CreateView
-
-def home(request):
-    return HttpResponse("Hello World")
+from .forms import *
 
 class ImageViewSet(ListAPIView):
     queryset = UploadImageTest.objects.all()
@@ -40,3 +38,14 @@ def ViewByDate(request,pk):
         'photos': msg
     }
     return render(request,'home.html',context)
+
+def Uploader(request):
+    form = UploadVideo(request.POST,request.FILES)
+    if form.is_valid():
+        form.save()
+        form = UploadVideo()
+    context = {
+        'files': Videos.objects.all(),
+        'form': form
+    }
+    return render(request,'upload.html',context)

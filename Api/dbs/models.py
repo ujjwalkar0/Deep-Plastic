@@ -16,3 +16,6 @@ class UploadImageTest(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('home')
+
+class Videos(models.Model):
+    Upload_File=models.FileField(upload_to='file2link')
