@@ -7,20 +7,24 @@ from datetime import datetime
 def SendImage(path):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
+    date = now.strftime("%D")
 
     r = requests.get('https://ipinfo.io')
     x = r.json()['loc']
 
     url = 'http://127.0.0.1:8000/upload/'
 
-    now = datetime.now()
-    files = {
+    data = {
         'name':'Trash_Plastic',
-        'image':open(path,'rb'),
         'location': x,
         'time': current_time,
+        'date':date,
         }
-    r = requests.post(url, files = files)
+    files = {
+        'image':open(path,'rb'),
+    }
+    print(files)
+    r = requests.post(url, data = data, files=files)
 
     if r.status_code != 200:
         time.sleep(2)

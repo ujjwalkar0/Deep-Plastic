@@ -3,11 +3,11 @@ from django.conf.urls import include
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import ImageViewSet, home
+from .views import *
 
 urlpatterns = [
     path('upload/', ImageViewSet.as_view(), name='upload'),
-    path('', home, name='upload'),
+    path('', ViewData.as_view(), name='upload'),
 ]
 
 if settings.DEBUG:

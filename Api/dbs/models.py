@@ -10,6 +10,7 @@ class UploadImageTest(models.Model):
     image = models.ImageField(upload_to=nameFile, blank=True, null=True)
     location = models.CharField(max_length=20)
     time = models.CharField(max_length=20)
+    date = models.CharField(max_length=20)
     
     def __str__(self):
         return self.name
