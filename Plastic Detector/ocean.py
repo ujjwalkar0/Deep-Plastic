@@ -1,3 +1,6 @@
+# run pip install https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/requirement.txt
+# to install dependencies
+
 import cv2
 import numpy as np 
 import time
@@ -56,7 +59,7 @@ while True:
     _, img = cap.read()
     if img is None:
         break
-        
+
     img = cv2.resize(img, None, fx=0.4, fy=0.4)
     height, width, channels = img.shape
 

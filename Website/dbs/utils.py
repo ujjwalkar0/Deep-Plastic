@@ -35,10 +35,11 @@ def CheckVideo(link):
 
     while True:
         _, img = cap.read()
-        # try:
+
+        if img is None:
+            break
+
         img = cv2.resize(img, None, fx=0.4, fy=0.4)
-        # except:
-        #     pass
         height, width, channels = img.shape
 
         # Detecting objects
@@ -87,9 +88,9 @@ def CheckVideo(link):
                 color = colors[0]
                 cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
                 cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
-        # cv2.imshow("Image", img)
+
         key = cv2.waitKey(1)
-        if key == 27:
+        if key == 27 & 0xFF == ord('q'):
             break
 
     cap.release()
