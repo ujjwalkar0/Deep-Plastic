@@ -3,11 +3,19 @@ import numpy as np
 import time
 import requests
 from datetime import datetime
+import sys
+
+path = 0
+try:
+    path = sys.argv[1]
+except:
+    pass
 
 def SendImage(path):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     date = now.strftime("%D")
+    date = date.replace('/','-')
 
     r = requests.get('https://ipinfo.io')
     x = r.json()['loc']
@@ -23,7 +31,7 @@ def SendImage(path):
     files = {
         'image':open(path,'rb'),
     }
-    print(files)
+    print(data)
     r = requests.post(url, data = data, files=files)
 
     if r.status_code != 200:
@@ -45,7 +53,7 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 # img = cv2.imread("nasa.png")
 # img = cv2.resize(img, None, fx=0.4, fy=0.4)
 
-cap = cv2.VideoCapture('plastic.mp4')
+cap = cv2.VideoCapture(path)
 
 while True:
     _, img = cap.read()

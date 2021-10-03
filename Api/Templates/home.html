@@ -13,6 +13,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
+      <!-- <h1>{{Posts}}</h1> -->
     <!-- <h1>Hello, world!</h1>
     {% for i in object_list %}
         {{i.id}}
@@ -24,6 +25,7 @@
         </div>
       </nav>
       <div style="margin: 20px;">
+        <h3>{{photos}}</h3>
         <div class="row">
         {% for i in object_list %}
             <div class="col-sm-6 col-md-4 col-lg-3">
@@ -35,7 +37,7 @@
                     <img src="/media/{{i.image}}" width="270px" height="200px">
                 </div>
                 <div class="card-footer text-muted">
-                    Posted at: {{i.time}} on {{i.time}}
+                    Posted at: {{i.time}} on <a href="/{{i.date}}">{{i.date}}</a>
                 </div>                
                 </div>
             </div>
