@@ -7,7 +7,6 @@ from .views import *
 
 urlpatterns = [
     path('', ViewData.as_view(), name='home'),
-    path('home', ViewData.as_view(), name='home'),
     path('api/', ImageViewSet.as_view(), name='api'),
     path('upload/', Uploader, name='upload'),
     path('link/<str:a>/<str:b>/<str:c>',ObjectDetect, name='link'),
