@@ -1,4 +1,4 @@
-Run ocean.py on your computer which send trash plastic images to a server, and from https://oceanplastic.herokuapp.com you can see images.
+#### Run ocean.py on your computer which send trash plastic images to a server, and from https://oceanplastic.herokuapp.com you can see images.
 
 ```python
 python ocean.py    # run this command to detect plastic near camera 
