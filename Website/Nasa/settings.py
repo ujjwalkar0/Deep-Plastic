@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'dbs',
     'rest_framework',
     'corsheaders',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
