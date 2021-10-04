@@ -20,7 +20,7 @@ def UploadImage(path):
         
     # image = UploadImageTest.objects.create(name="Trash_Plastic", image=path, location=x, time=current_time, date=date)
     # image.save()
-    url = 'https://oceanplastic.herokuapp.com/api/'
+    url = 'https://oceanplastic.herokuapp.com/api'
 
     data = {
         'name':'Trash_Plastic',
