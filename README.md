@@ -8,9 +8,9 @@ I have made a Trash Plastic Detection system. It comes with both CLI and web ver
 In future if we make a similar system that detects ocean life and sends images to the same server, and show these in an app, people interested in ocean life download the app. People see how we waste our earth, and they reduce the use of plastic
 
 ### How It Works ?
-Method 1. A Computer integrated on Satellites or Drones or Submarine run ocean.py  which takes photograph of ocean and whenever plastic detected it will send to a server. Go to https://oceanplastic.herokuapp.com/ to see images  
+Method 1. A Computer integrated on Satellites or Drones or Submarine run <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>  which takes photograph of ocean and whenever plastic detected it will send to a server. Go to https://oceanplastic.herokuapp.com/ to see images  
 
-Method 2. Satellites or Drones, Submarine collect video of ocean. Pass this video through ocean.py. All images of plastics will send to a database. Go to https://oceanplastic.herokuapp.com/ to see images 
+Method 2. Satellites or Drones, Submarine collect video of ocean. Pass this video through <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>. All images of plastics will send to a database. Go to https://oceanplastic.herokuapp.com/ to see images 
 
 Go to following Link for Details :
 https://github.com/ujjwalkar0/Garuda/tree/master/Plastic%20Detector
