@@ -32,5 +32,7 @@ Python, Opencv, Django, Bootstrap, and Most important thing Yolo object detectio
 
 ### References:
 Get started with: https://github.com/gautamtata/DeepPlastic
+
 Dataset: https://drive.google.com/drive/folders/1tk4HDftOVzmROHpkWRUIwL0Gu_p2E-qa
+
 Youtube: https://youtu.be/yGMZOD44GrI and others...
