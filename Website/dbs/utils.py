@@ -11,17 +11,40 @@ def UploadImage(path):
     current_time = now.strftime("%H:%M:%S")
     date = now.strftime("%D")
     date = date.replace('/','-')
+    
+    try:
+        r = requests.get('https://ipinfo.io')
+        x = r.json()['loc']
+    except:
+        x = 0,0
+        
+    # image = UploadImageTest.objects.create(name="Trash_Plastic", image=path, location=x, time=current_time, date=date)
+    # image.save()
+    url = 'http://127.0.0.1:8000/api/'
 
-    r = requests.get('https://ipinfo.io')
-    x = r.json()['loc']
+    data = {
+        'name':'Trash_Plastic',
+        'location': x,
+        'time': current_time,
+        'date':date,
+        }
 
-    image = UploadImageTest.objects.create(name="Trash_Plastic", image=path, location=x, time=current_time, date=date)
-    image.save()
+    files = {
+        'image':open(path,'rb'),
+    }
+    r = requests.post(url, data = data, files=files)
+    
+    if r.status_code != 200:
+        time.sleep(2)
+        return UploadImage(path)
+
+    print(r.text)
 
 def CheckVideo(link):
-    
-    net = cv2.dnn.readNet("weights/yolov4-custom_last.weights","yolov4-custom.cfg")
+    print(link)    
+    net = cv2.dnn.readNet("dbs/weights/yolov4-custom_last.weights","dbs/yolov4-custom.cfg")
     classes = ['trash_plastic']
+
 
     layer_names = net.getLayerNames()
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
@@ -75,7 +98,7 @@ def CheckVideo(link):
             filename = 'savedImage.jpg'
             temp = img
             cv2.imwrite(filename, img)
-            SendImage(filename)
+            UploadImage(filename)
             
 
         indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
@@ -89,11 +112,11 @@ def CheckVideo(link):
                 cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
                 cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
 
-        key = cv2.waitKey(1)
-        if key == 27 & 0xFF == ord('q'):
-            break
+        # key = cv2.waitKey(1)
+        # if key == 27 & 0xFF == ord('q'):
+        #     break
 
-    cap.release()
-    cv2.destroyAllWindows()
-    
+    # cap.release()
+    # cv2.destroyAllWindows()
+
     return "Complete"

@@ -25,7 +25,7 @@ def SendImage(path):
         x = r.json()['loc']
     except:
         x = 0,0
-    url = 'http://127.0.0.1:8000/api/'
+    url = 'https://oceanplastic.herokuapp.com/api/'
 
     data = {
         'name':'Trash_Plastic',

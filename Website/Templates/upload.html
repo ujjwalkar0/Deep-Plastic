@@ -2,15 +2,21 @@
 
 {% block content %}
 <!--------- Form --------------->
+<input class="form-control" type="text" value="Step 1: Uploaded the video" readonly><br>
+
+<div style="margin: 0% 35%;">
 <form action="" method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p}}
-    <button type="submit" class="w3-button w3-blue" name="username" value ="{{user.get_username}}">Submit</button>
+    <button type="submit" class="btn btn-success" name="username" value ="{{user.get_username}}">Submit</button>
     </form>
-    <br><br>
-    <input class="form-control" type="text" value="Previously Coverted Links" readonly><br>
-    {% for i in files reversed %}
-    <a href="/link/media/{{i.Upload_File}}">media/{{i.Upload_File}}</a> <br>
-    {% endfor %}
+</div>
+<br><br>
+<input class="form-control" type="text" value="Step 2: Uploaded Files Link are below. Click the link to start extracting plastics images (Its take some time)" readonly><br>
+<div class="container">
+{% for i in files reversed %}
+<a href="/link/media/{{i.Upload_File}}">media/{{i.Upload_File}}</a> <br>
+{% endfor %}
+</div>
 
 {% endblock content %}

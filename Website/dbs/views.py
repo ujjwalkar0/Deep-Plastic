@@ -52,9 +52,9 @@ def Uploader(request):
     return render(request,'upload.html',context)
 
 def ObjectDetect(request,a,b,c):
-    # CheckVideo(a+'/'+b+'/'+c)
+    CheckVideo(a+'/'+b+'/'+c)
 
     context = {
-        'a': "Sorry, Currently Not working, please try letter" #a+'/'+b+'/'+c
+        'a': "Completed" #a+'/'+b+'/'+c
     }
     return render(request,'plastic.html',context)
