@@ -3,7 +3,9 @@ This project is for NASA Space Apps Challenge : https://2021.spaceappschallenge.
 
 ### Problem
 Plastic pollution has a direct and fatal impact on ocean life. Thousands of seabirds, sea turtles, seals and other marine mammals are killed every year after ingesting or entangled in plastic. Plastic fragments that contain chemicals and are often ingested by marine animals can harm wildlife. Floating plastic trash can survive in the water for thousands of years, as a miniature transportation vehicle for invasive species, destroying habitats. The most obvious and disturbing effect of ocean plastics is the ingestion, suffocation and entanglement of hundreds of marine species. Marine wildlife such as seabirds, whales, fish, and sea turtles mistake plastic waste for prey, and most of them starve to death because their stomachs are full of plastic debris.
-Can we not detect how much plastics go to ocean every year ?
+
+We don’t Know how much plastic affect ocean environment. This project describe how to detect it.
+
 
 ### Solution : Monitor Plastics and Reduce uses
 I have made a Trash Plastic Detection system. It comes with both CLI and web versions. Embedded computers with Satellites, drones, submarines, etc. detect and send pictures of trash plastic to a database. It can detect plastics from a video, and send them to a server. A web interface also available where we can upload video, and trash plastics of the videos shown on website.
