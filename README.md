@@ -1,4 +1,3 @@
-# Garuda
 This project is for NASA Space Apps Challenge : https://2021.spaceappschallenge.org/challenges/statements/leveraging-aiml-for-plastic-marine-debris/details
 
 ### Problem
