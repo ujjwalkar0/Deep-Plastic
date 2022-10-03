@@ -7,6 +7,7 @@ import json
 from django.views.generic import ListView #, DeleteView, UpdateView, DetailView, CreateView
 from .forms import *
 from .utils import CheckVideo
+import os
 
 class ImageViewSet(ListAPIView):
     queryset = UploadImageTest.objects.all()
@@ -41,14 +42,30 @@ def ViewByDate(request,pk):
     return render(request,'home.html',context)
 
 def Uploader(request):
-    form = UploadVideo(request.POST,request.FILES)
-    if form.is_valid():
-        form.save()
-        form = UploadVideo()
-    context = {
-        'files': Videos.objects.all(),
-        'form': form
-    }
+
+    if request.method == 'GET':
+        form = UploadVideo() 
+        context = {
+            'files': Videos.objects.all(),
+            'form': form
+            }
+    
+    if request.method == 'POST':
+        form = UploadVideo(request.POST,request.FILES)
+
+        if form.is_valid():
+            save_video = form.save()        
+            print(Videos.objects.get(id=save_video.id).Upload_File)
+            CheckVideo(f"media/{Videos.objects.get(id=save_video.id).Upload_File}")
+            os.remove(f"media/{Videos.objects.get(id=save_video.id).Upload_File}")
+            Videos.objects.get(id=save_video.id).delete()
+        
+        context = {
+            'message': "Completed",
+            'form': form,
+            }
+
+
     return render(request,'upload.html',context)
 
 def ObjectDetect(request,a,b,c):

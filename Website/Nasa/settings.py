@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'dbs',
     'rest_framework',
     'corsheaders',
+    'channels',
     'whitenoise.runserver_nostatic',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Nasa.wsgi.application'
-
+ASGI_APPLICATION = "Nasa.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
