@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+{% if user.is_authenticated %}
+    <meta http-equiv="refresh" content="0; url=/" />
+    <h1>You are Already logged in</h1>
+{% else %}
+
+<div style="height:60vh;">
+    <div class="d-flex justify-content-center">
+        <img style="width:200px" src="https://firebasestorage.googleapis.com/v0/b/authenticate-shopee.appspot.com/o/azadi.png?alt=media&token=2749c577-71ab-4024-9d40-155a5d1b3c78">
+    </div>
+
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-secondary">Login</button><br>
+    </div>
+    </form>
+</div>
+{% endif %}
+</div>
+{% endblock content %}

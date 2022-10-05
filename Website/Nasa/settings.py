@@ -37,13 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'versatileimagefield',
     'dbs',
     'rest_framework',
     'corsheaders',
-    'channels',
     'whitenoise.runserver_nostatic',
-    'chat'
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -77,7 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Nasa.wsgi.application'
-ASGI_APPLICATION = "Nasa.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -145,3 +142,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S' 
+
+DATE_FORMAT =  '%Y-%m-%d'
+
+TIME_ZONE = 'GMT'

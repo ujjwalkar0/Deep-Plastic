@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import UploadImageTest
+from .models import *
 
-admin.site.register(UploadImageTest)
+admin.site.register([UploadImageTest, DailyStatistics])

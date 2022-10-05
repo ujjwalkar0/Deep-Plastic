@@ -5,42 +5,36 @@ import requests
 from datetime import datetime
 import sys
 from .models import UploadImageTest
+import datetime
+from rest_framework.authtoken.models import Token
 
-def UploadImage(path):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    date = now.strftime("%D")
-    date = date.replace('/','-')
-    
-    try:
-        r = requests.get('https://ipinfo.io')
-        x = r.json()['loc']
-    except:
-        x = 0,0
-        
-    # image = UploadImageTest.objects.create(name="Trash_Plastic", image=path, location=x, time=current_time, date=date)
-    # image.save()
-    url = 'http://127.0.0.1:8000/api/'
 
-    data = {
-        'name':'Trash_Plastic',
-        'location': x,
-        'time': current_time,
-        'date':date,
-        }
+def UploadImage(request, path):
+    token, created = Token.objects.get_or_create(user=request.user)
+
+    url = f"http://{request.get_host()}/api/"
+    if request.is_secure():
+        url = f"https://{request.get_host()}/api/"
 
     files = {
         'image':open(path,'rb'),
     }
-    r = requests.post(url, data = data, files=files)
+
+    headers = {
+        "Authorization": f"token {token.key}",
+    }
+
+    print(headers)
+
+    r = requests.post(url, files=files, headers=headers)
     
     if r.status_code != 200:
         time.sleep(2)
-        return UploadImage(path)
+        return UploadImage(request, path)
 
     print(r.text)
 
-def CheckVideo(link):
+def CheckVideo(request,link):
     print(link)    
     net = cv2.dnn.readNet("dbs/weights/yolov4-custom_last.weights","dbs/yolov4-custom.cfg")
     classes = ['trash_plastic']
@@ -95,10 +89,12 @@ def CheckVideo(link):
         print(len(class_ids))
 
         if len(class_ids) >0:
-            filename = 'savedImage.jpg'
-            temp = img
+            filename = f'Trash-Image.jpg'
+            # temp = img
             cv2.imwrite(filename, img)
-            UploadImage(filename)
+            UploadImage(request, filename)
+
+            # UploadImageTest.objects.create(location=request.user, image=filename).save()
             
 
         indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
