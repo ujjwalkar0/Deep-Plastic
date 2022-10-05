@@ -7,10 +7,15 @@ import sys
 from .models import UploadImageTest
 import datetime
 from rest_framework.authtoken.models import Token
-
+from django.contrib.auth.models import User
+import random
 
 def UploadImage(request, path):
+    # user = [i.username for i in User.objects.all()]
+
     token, created = Token.objects.get_or_create(user=request.user)
+    
+    # User.objects.get(username=user[random.randint(0,9)])) #
 
     url = f"http://{request.get_host()}/api/"
     if request.is_secure():

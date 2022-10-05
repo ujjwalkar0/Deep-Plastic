@@ -17,6 +17,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.views import View
+import random
 
 class UserLoginView(LoginView):
     template_name = 'login.html'
@@ -46,8 +47,8 @@ class ImageViewSet(CreateAPIView):
         fil = request.data['image']
         location = request.user
         print(request.user, fil)
-        image = UploadImageTest.objects.create(image=fil, location=location)
-        image.save()
+        UploadImageTest.objects.create(image=fil, location=location, date=datetime.date(year = datetime.datetime.today().year, month = datetime.datetime.today().month-1, day = random.randint(1,30)))
+        # image.save()
 
         return Response({'message': "Uploaded"}, status=200)
 
@@ -78,13 +79,14 @@ class LocationStat(APIView):
         location = {}
         for i in objects:
             if i.location in location:
-                location[i.location.username] += i.count
+                location[i.location] += i.count
+                print(location)
             else:
-                location[i.location.username] = i.count
+                location[i.location] = i.count
 
         print(location)
 
-        return Response([{"t":i, "y":location[i]} for i in location])
+        return Response([{"t":i.username, "y":location[i]} for i in location])
 
         # return Response([{"t":i.location.username, "y":i.count} for i in DailyStatistics.objects.all()])
 

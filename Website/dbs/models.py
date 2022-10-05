@@ -11,6 +11,7 @@ class DailyStatistics(models.Model):
 
     class Meta:
         unique_together = ('location', 'date')
+        ordering = ('date','location')
 
     def __str__(self):
         return f"{self.date} -- {self.location} -- {self.count}"
@@ -41,9 +42,7 @@ class UploadImageTest(models.Model):
         except DailyStatistics.DoesNotExist:
             day = DailyStatistics.objects.create(date=self.date, location = self.location)
             day.location = self.location
-
         day.save()
-
         super(UploadImageTest, self).save(*args, **kwargs)
 
 class Videos(models.Model):
