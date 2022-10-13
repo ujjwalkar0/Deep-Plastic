@@ -14,32 +14,30 @@ try:
 except:
     pass
 
-def SendImage(path):
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    date = now.strftime("%D")
-    date = date.replace('/','-')
+token=[1]
+token[0] = input("Enter Your Token")
 
-    try:
-        r = requests.get('https://ipinfo.io')
-        x = r.json()['loc']
-    except:
-        x = 0,0
+def SendImage(path):
     url = 'https://oceanplastic.herokuapp.com/api/'
 
-    data = {
-        'name':'Trash_Plastic',
-        'location': x,
-        'time': current_time,
-        'date':date,
-        }
+    headers = {
+        "Authorization": f"token {token[0]}",
+    }
 
     files = {
         'image':open(path,'rb'),
     }
-    r = requests.post(url, data = data, files=files)
-    
-    if r.status_code != 200:
+
+    print("Start Uploading....")
+    r = requests.post(url, files=files, headers=headers)
+
+    print(r.status_code)
+
+    if r.status_code==503:
+        token[0] = input("Enter Your Token")
+        return SendImage(path)
+
+    elif r.status_code != 200:
         time.sleep(2)
         return SendImage(path)
 
