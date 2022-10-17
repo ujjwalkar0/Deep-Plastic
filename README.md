@@ -11,18 +11,16 @@ I have made a Trash Plastic Detection system. It comes with both CLI and web ver
 In future if we make a similar system that detects ocean life and sends images to the same server, and show these in an app, people interested in ocean life download the app. People see how we waste our earth, and they reduce the use of plastic
 
 ### How It Works ?
-Method 1. A Computer integrated on Satellites or Drones or Submarine run <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>  which takes photograph of ocean and whenever plastic detected it will send to a server. Go to https://oceanplastic.herokuapp.com/ to see images  
+* Method 1. A Computer integrated on Satellites or Drones or Submarine run <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>  which takes photograph of ocean and whenever plastic detected it will send to a server. Go to https://oceanplastic.herokuapp.com/ to see images  
 
-Method 2. Satellites or Drones, Submarine collect video of ocean. Pass this video through <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>. All images of plastics will send to a database. Go to https://oceanplastic.herokuapp.com/ to see images 
+* Method 2. Satellites or Drones, Submarine collect video of ocean. Pass this video through <a href="https://raw.githubusercontent.com/ujjwalkar0/Garuda/master/Plastic%20Detector/ocean.py">ocean.py</a>. All images of plastics will send to a database. Go to https://oceanplastic.herokuapp.com/ to see images 
 
-Go to following Link for Details :
-https://github.com/ujjwalkar0/Garuda/tree/master/Plastic%20Detector
+* Method 3: Collect video of ocean and upload it to https://oceanplastic.herokuapp.com/upload. Go to oceanplastic.heroku.app to see images  
 
-![image](https://user-images.githubusercontent.com/55041104/135787349-0ae8a4fa-741f-48cc-a042-bc29cc2b0083.png)
+![image](https://user-images.githubusercontent.com/55041104/196265362-d8303bc3-5758-4da9-8d2f-1d4ad596eaf9.png)
 
-Method 3: Collect video of ocean and upload it to https://oceanplastic.herokuapp.com/upload. Go to oceanplastic.heroku.app to see images  
 
-![image](https://user-images.githubusercontent.com/55041104/135787519-710c5544-4640-487e-8114-6af53d5d6991.png)
+
 
 ### What benefits does it have?
 
