@@ -23,13 +23,20 @@ In future if we make a similar system that detects ocean life and sends images t
 
 ![image](https://user-images.githubusercontent.com/55041104/196269793-a520da77-b09e-4c66-ad14-5ec3ca4603e9.png)
 
+## Limitations for external users
+
+To upload video or image you must have credentials. We don't allow external users to register our website, as this prototype allows images from their organizations.
 
 ## What benefits does it have?
 
 If we make a similar system that detects ocean life and sends images to the same server, and show these in an app, people interested in ocean life download the app. People see how we waste our earth, and they reduce the use of plastic. This is the benefit.
 
-### Technology Uses : 
-Python, Opencv, Django, Bootstrap, and Most important thing Yolo object detection.
+## Technology Uses : 
+* Python
+* Opencv
+* Django
+* Bootstrap
+* Yolo
 
 ## References:
 Get started with: https://github.com/gautamtata/DeepPlastic
