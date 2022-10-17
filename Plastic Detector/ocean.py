@@ -15,7 +15,7 @@ except:
     pass
 
 token=[1]
-token[0] = input("Enter Your Token")
+token[0] = input("Enter Your Token : ")
 
 def SendImage(path):
     url = 'https://oceanplastic.herokuapp.com/api/'
@@ -34,7 +34,7 @@ def SendImage(path):
     print(r.status_code)
 
     if r.status_code==503:
-        token[0] = input("Enter Your Token")
+        token[0] = input("Enter Your Token : ")
         return SendImage(path)
 
     elif r.status_code != 200:
